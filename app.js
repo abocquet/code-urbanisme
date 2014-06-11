@@ -2,28 +2,39 @@
 
 require('./array.js');
 
-var express = require('express'),
-	url = require('urlencode'),
+var mongoose = require('mongoose');
+	mongoose.connect('mongodb://localhost/urbanisme');
 
-	PDFParser = require('pdf2json/pdfparser.js'),
-	PDFIterator = require('./PDFIterator.js')
+var express = require('express.io'),
+	routes = require('./routes')
 ;
 
-var parser = new PDFParser();
+var app = express();
+ 	app.http().io();
 
-parser.on('pdfParser_dataError', function(err){
-	console.log(err);
-});
+app.use(express.static('public/'));
+app.get('/', routes.index);
 
-parser.on('pdfParser_dataReady', function(res){
+app.io.route('sauvegarde', routes.sauvegarde);
+app.io.route('comparaison', routes.comparaison);
 
-	var articles = [], article = null ;
-	var iterator = new PDFIterator(res);
+app.listen(8888);
 
-	while(article = iterator.nextArticle()){
-		console.log(article);
-	}
+// var Fetcher = require('./Fetcher.js'),
+// 	fetcher = new Fetcher()
+// ;
 
-});
+// var query = fetcher.fetch();
 
-parser.loadPDF('./code.pdf');
+// query.on('success', function(articles){
+// 	console.log('success');
+// })
+
+
+// query.on('progress', function(a){
+// 	console.log(a);
+// })
+
+// query.on('error', function(a){
+// 	console.log(a);
+// })

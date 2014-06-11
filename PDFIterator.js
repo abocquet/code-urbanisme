@@ -6,7 +6,7 @@ var PDFIterator = function(json){
 	this.current = {
 		page: {
 			number: 0,
-			length: this.pages.length
+			length: this.pages.length - 1
 		}, 
 		text: {
 			number: 0,
@@ -21,20 +21,25 @@ var PDFIterator = function(json){
 
 	this.nextElement = function(){
 
+		this.current.text.number++
+		
+		if(this.current.text.number >= this.current.text.length){
+			this.current.text.number = 0;
+			this.current.page.number++ ;
+		}
+
+		console.log(this.current);
+
 		if(this.current.page.number < this.current.page.length)
 		{
-			this.current.text.number++
-			if(this.current.text.number >= this.current.text.length){
-				this.current.text.number = 0;
-				this.current.page.number++ ;
-
-				this.current.text.length = this.pages[ this.current.page.number ].Texts.length ;
-			}
-
+			this.current.text.length = this.pages[ this.current.page.number ].Texts.length ;
 			return this.currentElement() ;
 		}
 		else {
-			return false ; // = ENDED
+			this.current.text.number = 0;
+			this.current.text.length = 1000;
+
+			return false ;
 		}
 	}
 
@@ -60,9 +65,12 @@ var PDFIterator = function(json){
 			element = this.currentElement()
 		;		
 
+		if(element == false){ return false ;}
+
 		while(element.type == type){
 			content += element.content + ' ';
 			element = this.nextElement();
+			if(element == false){ return false ;}
 		}
 
 		return url.decode(content) ;
@@ -74,16 +82,19 @@ var PDFIterator = function(json){
 			element = this.currentElement()
 		;
 
+		if(element == false){ return false ;}
+
 		while(element.type != type){
 			content += element.content + ' ';
 			element = this.nextElement();
+			if(element == false){ return false ;}
 		}
 
 		return url.decode(content) ;
 	}
 
 	this.nextArticle = function(){
-		var article = {} ;
+		var article = { title: "rien" } ;
 
 		this.whileNotType("TITLE");
 		article.title = this.whileType("TITLE");
@@ -91,6 +102,8 @@ var PDFIterator = function(json){
 		this.whileNotType("TEXT");
 		article.content = this.whileType("TEXT");
 
+
+		if(!article.title || !article.content){ console.log('false') ; return false; }
 		return article ;
 	}
 };
