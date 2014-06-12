@@ -2,18 +2,120 @@
 <html lang="fr" ng-app="Parseur">
 <head>
 	<meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Code de l'urbanisme</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Code de l'urbanisme</title>
 
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+		<!-- Bootstrap -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/added.css" rel="stylesheet">
 </head>
 
 <body class="container">
 
 	<script type="text/x-handlebars">
-		<h1 class="text-center">Code de l'urbanisme</h1>
+
+		<div class="container">
+			<div class="header">
+				<ul class="nav nav-pills pull-right">
+					<li>{{#link-to 'index'}}Accueil{{/link-to}}</li>
+					<li>{{#link-to 'sauvegarde'}}Sauvergardes{{/link-to}}</li>
+					<li>{{#link-to 'comparaison'}}Comparaisons{{/link-to}}</li>
+				</ul>
+				<h3 class="text-muted">Code de l'urbanisme</h3>
+			</div>
+
+			{{outlet}}
+
+			<div class="footer">
+				<p>Adrien Bocquet - 2014</p>
+			</div>
+		</div>
+
+	</script>
+
+	<script type="text/x-handlebars" data-template-name="index">
+
+		<div class="jumbotron">
+			<h1>Code de l'urbanisme</h1>
+		<p class="lead">Bienvenue sur l'application la plus cool jamais réalisée en matière de traitement juridique !</p>
+			<p>{{#link-to 'sauvegarde.nouvelle' class="btn btn-lg btn-success"}}Commencer par l'étape 1{{/link-to}}</p>
+		</div>
+
+		<div class="row marketing">
+			<div class="col-lg-6">
+				<h4>Etape 1: Récupération</h4>
+				<p>
+					Il faut commencer par récupérer les articles du code pour en faire une sauvegarde à comparer plus tard.
+					{{#link-to 'sauvegarde.nouvelle' }}Etape 1: Récupération{{/link-to}}
+				</p>
+
+				<h4>Etape 3: Commentaires</h4>
+				<p>
+					Il va falloir se mettre à bosser: les modifications de chaque article vous sont présentées et vous pouvez (pas de pression) les commenter
+					{{#link-to 'index' }}Etape 3: Commentaires{{/link-to}}
+				</p>
+
+			</div>
+
+			<div class="col-lg-6">
+				<h4>Etape 2: Comparaison</h4>
+				<p>
+					Séléctionnez deux sauvergardes à comparer et le programme trouve toutes leurs différences et vous les soumet
+					{{#link-to 'index' }}Etape 2: Comparaison{{/link-to}}
+				</p>
+
+				<h4>Etape 4: la vie</h4>
+				<p>
+					On exporte le tout sur excel et on fait des lasagnes
+					{{#link-to 'index' }}Etape 4: la vie{{/link-to}}
+				</p>
+
+			</div>
+		</div>
+
+	</script>
+
+	<script type="text/x-handlebars" data-template-name="sauvegarde/index">
+
+		<div class="jumbotron">
+			<h1>Sauvegardes</h1>
+			<p>
+				Vous pouvez les renommer, les supprimer en en créer de nouvelles ci-dessous !
+			</p>
+			<p class="text-center">
+				{{#link-to "sauvegarde.nouvelle" class="btn btn-primary btn-lg" }}Prendre un instantané{{/link-to}}
+			</p>
+		</div>
+
+	</script>
+	<script type="text/x-handlebars" data-template-name="sauvegarde/nouvelle">
+
+		<h1>Création d'une sauvegarde</h1>
+		<p class="lead">
+			Nous allons sauvegarder le code de l'urbanisme actuel.<br>Vous serez informé tout au long du processus puis invité à poursuivre le parcours à la fin.
+		</p>
+
+		{{!-- 	<p {{ bind-attr class="processing:hidden :input-group :col-md-6 :col-md-offset-3" }}>
+			{{input value=name class="form-control" action="start" id="name"}}
+			<span class="input-group-btn">
+				<button class="btn btn-default" {{action 'start'}}>Lancer la sauvegarde</button>
+			</span>
+		</p> --}}
+
+		<h3 {{bind-attr class="processing:hidden :text-center" }}><button class="btn btn-lg btn-success" {{action "start"}}>On commence ?</button></h3>
+
+		{{#each }}
+			<div {{ bind-attr class=":alert type" }}>
+				{{ content }}
+				{{#if progression}}
+					<div class="progress">
+						<div class="progress-bar" role="progressbar" {{bind-attr aria-valuenow=progression style=progression }} aria-valuemin="0" aria-valuemax="100"></div>
+					</div>
+				{{/if}}
+			</div>
+		{{/each}}
+
 	</script>
 
 	<!-- script[type=text/x-handlebars][data-template-name=] -->
@@ -25,7 +127,13 @@
 	<script src="js/libs/handlebars-1.1.2.js"></script>
 	<script src="js/libs/ember-1.5.1.js"></script>
 
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="js/libs/ember-sockets.js"></script>
+
 	<script src="js/app.js"></script>	
-	<script src="js/router.js"></script>	
+	<script src="js/router.js"></script>
+
+	<script src="js/controllers/SauvegardeNouvelleController.js"></script>	
+
 </body>
 </html>

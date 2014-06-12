@@ -28,8 +28,6 @@ var PDFIterator = function(json){
 			this.current.page.number++ ;
 		}
 
-		console.log(this.current);
-
 		if(this.current.page.number < this.current.page.length)
 		{
 			this.current.text.length = this.pages[ this.current.page.number ].Texts.length ;
@@ -103,7 +101,7 @@ var PDFIterator = function(json){
 		article.content = this.whileType("TEXT");
 
 
-		if(!article.title || !article.content){ console.log('false') ; return false; }
+		if(!article.title || !article.content){ return false; }
 		return article ;
 	}
 };
