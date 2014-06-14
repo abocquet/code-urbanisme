@@ -19,19 +19,18 @@
 			<div class="header">
 				<ul class="nav nav-pills pull-right">
 					<li>{{#link-to 'index'}}Accueil{{/link-to}}</li>
-					<li>{{#link-to 'sauvegarde'}}Sauvergardes{{/link-to}}</li>
-					<li>{{#link-to 'comparaison'}}Comparaisons{{/link-to}}</li>
+					<li>{{#link-to 'sauvegarde'}}Sauvegardes{{/link-to}}</li>
+					<li>{{#link-to 'comparaisons'}}Comparaisons{{/link-to}}</li>
 				</ul>
 				<h3 class="text-muted">Code de l'urbanisme</h3>
 			</div>
 
 			{{outlet}}
 
-			<div class="footer">
+			<div class="footer text-center">
 				<p>Adrien Bocquet - 2014</p>
 			</div>
 		</div>
-
 	</script>
 
 	<script type="text/x-handlebars" data-template-name="index">
@@ -61,8 +60,8 @@
 			<div class="col-lg-6">
 				<h4>Etape 2: Comparaison</h4>
 				<p>
-					Séléctionnez deux sauvergardes à comparer et le programme trouve toutes leurs différences et vous les soumet
-					{{#link-to 'index' }}Etape 2: Comparaison{{/link-to}}
+					Séléctionnez deux sauvegardes à comparer et le programme trouve toutes leurs différences et vous les soumet
+					{{#link-to 'comparaisons.nouvelle' }}Etape 2: Comparaison{{/link-to}}
 				</p>
 
 				<h4>Etape 4: la vie</h4>
@@ -73,21 +72,30 @@
 
 			</div>
 		</div>
-
 	</script>
 
 	<script type="text/x-handlebars" data-template-name="sauvegarde/index">
 
-		<div class="jumbotron">
-			<h1>Sauvegardes</h1>
-			<p>
-				Vous pouvez les renommer, les supprimer en en créer de nouvelles ci-dessous !
-			</p>
-			<p class="text-center">
-				{{#link-to "sauvegarde.nouvelle" class="btn btn-primary btn-lg" }}Prendre un instantané{{/link-to}}
-			</p>
-		</div>
+		<h1 class="text-center">Sauvegardes</h1>
 
+		<table class="table table-hover">
+			<tr>
+				<th>Nom</th>
+				<th>Date de création</th>
+				<th>Nombre d'articles</th>
+				<th class="text-right">Actions</th>
+			</tr>
+			{{#each }}
+			<tr>
+				<td>{{ name }}</td>
+				<td>{{ format_date date }}</td>
+				<td>{{ nombre_articles }}</td>
+				<td class="text-right">
+					<a href="">Supprimer</a>
+				</td>
+			</tr>
+			{{/each }}
+		</table>
 	</script>
 	<script type="text/x-handlebars" data-template-name="sauvegarde/nouvelle">
 
@@ -96,30 +104,186 @@
 			Nous allons sauvegarder le code de l'urbanisme actuel.<br>Vous serez informé tout au long du processus puis invité à poursuivre le parcours à la fin.
 		</p>
 
-		{{!-- 	<p {{ bind-attr class="processing:hidden :input-group :col-md-6 :col-md-offset-3" }}>
-			{{input value=name class="form-control" action="start" id="name"}}
-			<span class="input-group-btn">
-				<button class="btn btn-default" {{action 'start'}}>Lancer la sauvegarde</button>
-			</span>
-		</p> --}}
-
 		<h3 {{bind-attr class="processing:hidden :text-center" }}><button class="btn btn-lg btn-success" {{action "start"}}>On commence ?</button></h3>
 
-		{{#each }}
-			<div {{ bind-attr class=":alert type" }}>
-				{{ content }}
-				{{#if progression}}
-					<div class="progress">
-						<div class="progress-bar" role="progressbar" {{bind-attr aria-valuenow=progression style=progression }} aria-valuemin="0" aria-valuemax="100"></div>
-					</div>
-				{{/if}}
+		<p {{ bind-attr class="choosing_name::hidden :input-group :col-sm-6 :col-sm-offset-3" }}>
+			{{ input value=name class="form-control" action="choose_name" id="name"}}
+			<span class="input-group-btn">
+				<button class="btn btn-default" {{action 'choose_name'}}>Enregistrer la sauvegarde</button>
+			</span>
+		</p>
+
+		<div {{ bind-attr class="done::hidden :text-center" }}>
+			<h4>La sauvegarde est terminée</h4>
+			<h3>{{#link-to 'comparaisons.nouvelle' class="btn btn-lg btn-success" }}On continu ?{{/link-to}}</h3>
+
+			<hr>
+
+			<p><button {{ action "toogleLog" }} class="btn btn-primary">Afficher/masques le log</button></p>
+		</div>
+
+		<div {{ bind-attr class="logVisible::hidden" }}>
+			{{#each }}
+				<div {{ bind-attr class=":alert type" }}>
+					{{ content }}
+					{{#if progression}}
+						<div class="progress">
+							<div class="progress-bar" role="progressbar" {{bind-attr aria-valuenow=progression style=progression }} aria-valuemin="0" aria-valuemax="100"></div>
+						</div>
+					{{/if}}
+				</div>
+			{{/each}}
+		</div>
+	</script>
+
+
+	<script type="text/x-handlebars" data-template-name="comparaisons/index">
+		<h1 class="text-center">Comparaisons</h1>
+
+		<table class="table table-hover">
+			<tr>
+				<th>Nom</th>
+				<th>Date de création</th>
+				<th>Nombre d'articles</th>
+				<th class="text-right">Actions</th>
+			</tr>
+			{{#each }}
+			<tr>
+				<td>{{ name }}</td>
+				<td>{{ format_date date }}</td>
+				<td>{{ articles.length }}</td>
+				<td class="text-right">
+					{{#link-to 'comparaison.show' this}}Voir{{/link-to}}
+				</td>
+			</tr>
+			{{/each }}
+		</table>
+	</script>
+
+	<script type="text/x-handlebars" data-template-name="comparaisons/nouvelle">
+
+		<div class="row">
+			<div class="col-sm-8 col-sm-offset-2">
+
+				<p class="form-group">
+					<label for="nom">Nom de la comparaison</label>
+					{{ input value=name class="form-control" placeholder="Entrez le nom" id="nom" }}
+				</p>
+
+				<p class="form-group">
+					<label for="nom">Nom de la sauvegarde la plus ancienne</label>
+
+					{{view Ember.Select
+						class="form-control"
+						content=sauvegardes
+						optionValuePath="content.id"
+						optionLabelPath="content.name"
+						selection=firstSauvegarde
+					}}
+				</p>
+
+				<p class="form-group">
+					<label for="nom">Nom de la sauvegarde la plus récente</label>
+
+					{{view Ember.Select
+						class="form-control"
+						content=afterSauvegardes
+						optionValuePath="content.id"
+						optionLabelPath="content.name"
+						selection=secondSauvegarde
+					}}
+				</p>
+
+				<p class="text-center">
+					<button class="btn btn-success" {{ action 'create' }}>Créer la comparaison</button>
+				</p>
+
 			</div>
-		{{/each}}
+		</div>
+	</script>	
+
+	<script type="text/x-handlebars" data-template-name="comparaison/show">
+
+		<h2 class="text-center">{{ name }}</h2>
+
+		<table class="table table-hover">
+			<tr>
+				<th>Article</th>
+				<th>Modication</th>
+				<th>Commentaire</th>
+				<th class="text-right">Actions</th>
+			</tr>
+
+			{{#each articles}}
+			<tr>
+				<td>{{ name }}</td>
+				<td>{{ format_state state }}</td>
+				<td>{{ format_commentaire commentaire }}</td>
+				<td class="text-right">
+					{{#link-to 'comparaison.commenter' index }}Commenter{{/link-to}}
+				</td>
+			</tr>
+			{{/each }}
+		</table>
 
 	</script>
 
-	<!-- script[type=text/x-handlebars][data-template-name=] -->
+	<script type="text/x-handlebars" data-template-name="comparaison/commenter">
 
+		<div class="row">
+			<div class="col-sm-10 col-sm-offset-1">
+				<h2>Article {{ name }}</h2>
+
+				<p {{ bind-attr class=":lead :right :state ajoute:text-success supprime:text-danger" }}>{{ format_state state }} de {{ objectAt comparaison.sauvegardes 0 'name' }} à {{ objectAt comparaison.sauvegardes 1 'name' }}</p>
+			</div>
+		</div>
+		<div class="row">
+			<p class="col-sm-10 col-sm-offset-1">
+				{{ safe differences }}
+			</p>
+		</div>
+
+		<div class="row">
+			
+			<p class="col-sm-1 top-40 hidden-xs">
+				{{#if index }}
+					<button {{ action 'previous' }} class="btn btn-default"><span class="glyphicon glyphicon-chevron-left"></span></button>
+				{{/if}}
+			</p>
+
+			<div class="col-sm-10">
+				{{textarea value=commentaire rows="6" class="form-control"}}
+			</div>
+
+			<p class="col-sm-1 top-40 hidden-xs"><button {{ action 'next' }} class="btn btn-default"><span class="glyphicon glyphicon-chevron-right"></span></button></p>
+
+			<p class="hidden-sm visible-xs text-center">
+				{{#if index }}
+					<button {{ action 'previous' }} class="btn btn-default"><span class="glyphicon glyphicon-chevron-left"></span></button>
+				{{/if}}
+				<button {{ action 'next' }} class="btn btn-default"><span class="glyphicon glyphicon-chevron-right"></span></button>
+			</p>
+
+		</div>
+
+		<p class="text-center form-inline">
+			Page: {{input value=indexFrom1 class="form-control" action='to' }} sur {{ comparaison.articles.length }}
+		</p>
+
+	</script>
+
+	<script type="text/x-handlebars" data-template-name="comparaison/export">
+		<div class="text-center">
+			<h1>Félécitations !</h1>
+			<p class="lead">Vous avez terminé de commenter les articles. Que voulez-vous faire ?</p>
+
+			<div class="row">
+				<p class="col-md-4 text-center">{{#link-to class="btn btn-danger"}}Refaire un passage{{/link-to}}</p>
+				<p class="col-md-4 text-center">{{#link-to }}class="btn btn-success">Exporter au format Excel{{/link-to }}</p>
+				<p class="col-md-4 text-center">{{#link-to }}class="btn btn-success">Revenir à l'accueil{{/link-to }}</p>
+			</div>
+		</div>
+	</script>
 	
 	<script src="js/libs/jquery-1.10.2.js"></script>
 	<script src="js/libs/bootstrap.js"></script>	
@@ -127,13 +291,28 @@
 	<script src="js/libs/handlebars-1.1.2.js"></script>
 	<script src="js/libs/ember-1.5.1.js"></script>
 
+	<script src="js/libs/ember-data.js"></script>
+
 	<script src="/socket.io/socket.io.js"></script>
 	<script src="js/libs/ember-sockets.js"></script>
 
 	<script src="js/app.js"></script>	
 	<script src="js/router.js"></script>
 
-	<script src="js/controllers/SauvegardeNouvelleController.js"></script>	
+	<script src="js/controllers/SauvegardeNouvelleController.js"></script>
+	<script src="js/controllers/ComparaisonsNouvelleController.js"></script>
+	<script src="js/controllers/ComparaisonCommenterController.js"></script>
+
+	<script src="js/models/Sauvegarde.js"></script>
+	<script src="js/models/Comparaison.js"></script>
+	<script src="js/models/Article.js"></script>
+
+	<script src="js/helpers/format_date.js"></script>
+	<script src="js/helpers/format_state.js"></script>
+	<script src="js/helpers/format_commentaire.js"></script>
+	<script src="js/helpers/safe.js"></script>
+	<script src="js/helpers/math.js"></script>
+	<script src="js/helpers/objectAt.js"></script>
 
 </body>
 </html>

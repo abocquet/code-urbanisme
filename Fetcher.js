@@ -25,11 +25,11 @@ var Fetcher = function(){
 
 		self.EventEmitter.emit('info', 'PDF analysé');
 
-		var articles = [], article = null ;
+		var articles = {}, article = null ;
 		var iterator = new PDFIterator(res);
 
 		while(article = iterator.nextArticle()){
-			articles.push(article);
+			articles[ article.title ] = article;
 
 			self.EventEmitter.emit('progress', {
 				progression: (iterator.current.page.number / iterator.current.page.length) * 100,

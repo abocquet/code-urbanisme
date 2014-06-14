@@ -95,10 +95,10 @@ var PDFIterator = function(json){
 		var article = { title: "rien" } ;
 
 		this.whileNotType("TITLE");
-		article.title = this.whileType("TITLE");
+		article.title = this.whileType("TITLE").replace("Article", "").trim();
 
 		this.whileNotType("TEXT");
-		article.content = this.whileType("TEXT");
+		article.content = this.whileType("TEXT").trim();
 
 
 		if(!article.title || !article.content){ return false; }

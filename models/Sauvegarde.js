@@ -1,15 +1,10 @@
 var mongoose = require('mongoose');
 
-var ArticleSchema = mongoose.Schema({
-	name: String, 
-	content: String
-})
-
 var SauvegardeSchema = mongoose.Schema({
 
 	name: String,
-	date: { type: Date, default: Date.now },
-	articles: [ ArticleSchema ]
+	nombre_articles: Number,
+	date: { type: Date, default: Date.now }
 
 });
 

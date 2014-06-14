@@ -2,6 +2,9 @@ App.SauvegardeNouvelleController = Ember.ArrayController.extend({
 
 	content: [],
 	processing: false,
+	logVisible: true,
+	choosing_name: false,
+	done: false,
 	
 	sortProperties: ['date'],
 	sortAscending: false,
@@ -14,10 +17,29 @@ App.SauvegardeNouvelleController = Ember.ArrayController.extend({
   		start: function(){
   			this.set('processing', true);
   			this.socket.emit('sauvegarde:new');
+  		},
+
+  		choose_name: function(){
+  			if(this.get('name').trim() != "")
+  			{
+  				this.set('choosing_name', false);
+  				this.socket.emit('sauvegarde:save', this.get('name'));
+  			}
+  		},
+
+  		toogleLog: function(){
+  			this.set('logVisible', !this.get('logVisible'));
   		}
   	},
 
 	sockets: {
+
+		sauvegarde_done: function(){
+
+			this.set('done', true);
+			this.set('logVisible', false);
+
+		},
 
 		sauvegarde_info: function(info){
 
@@ -44,6 +66,10 @@ App.SauvegardeNouvelleController = Ember.ArrayController.extend({
 				this.get('content').addObject(progress);
 				this.set('current_progress', progress);
 			}
+		},
+
+		choose_name: function(){
+			this.set('choosing_name', true);
 		}
 
 	}
