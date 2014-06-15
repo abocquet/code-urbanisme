@@ -30,6 +30,7 @@ app
 	.get('/sauvegardes/:id?', routes.rest.sauvegarde.get)
 	.get('/comparaisons/:id?', routes.rest.comparaison.get)
 	.get('/comparaison/:id/differences/:article', routes.rest.comparaison.differences)
+	.get('/comparaison/download/:id', routes.rest.comparaison.export)
 
 	.post('/comparaisons', routes.rest.comparaison.post)
 

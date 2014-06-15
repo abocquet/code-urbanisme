@@ -6,7 +6,9 @@ var mongoose = require('mongoose'),
 	fs = require('fs'),
 	Q = require('q'),
 	_ = require('lodash'),
-	sd =  require('simplediff')
+	sd =  require('simplediff'),
+	officegen = require('officegen'),
+	urlencode = require('urlencode')
 ;
 
 var routes = {
@@ -154,6 +156,61 @@ var routes = {
 				res.send(sd.htmlDiff(old.content, recent.content));
 			}
 		})
+	},
+
+	export: function(req, res){
+
+		Comparaison.findOne({_id: req.params.id})
+		.populate('sauvegardes')
+		.populate('articles')
+		.exec(function(err, comparaison){
+			if(err || comparaison == null){ console.error(err); res.send(404); }
+
+			var xlsx = officegen ( 'xlsx' );
+
+			sheet = xlsx.makeNewSheet();
+			sheet.name = comparaison.name ;
+
+			var articles = comparaison.articles ;
+			for (var i = 0; i < articles.length; i++) {
+
+				var state, content ;
+
+				if(articles[i].state < 1){
+					content = JSON.parse(fs.readFileSync('./data/' + comparaison.sauvegardes[0]._id + '.json'))[articles[i].name].content;
+				} else {
+					content = JSON.parse(fs.readFileSync('./data/' + comparaison.sauvegardes[1]._id + '.json'))[articles[i].name].content;
+				}
+
+				switch(articles[i].state){
+					case 1:
+						state = 'ajouté';
+						break;
+					case 0:
+						state = 'modifié';
+						break;
+					case -1:
+						state = 'supprimé';
+						break;
+				}
+
+				sheet.setCell('B' + (i + 3), articles[i].name);
+				sheet.setCell('C' + (i + 3), state);
+				sheet.setCell('D' + (i + 3), articles[i].commentaire);
+				sheet.setCell('E' + (i + 3), content);
+			};
+
+			var title = 'Comparaison entre les sauvegardes du ' + comparaison.sauvegardes[0].name + ' et du ' + comparaison.sauvegardes[1].name ;
+			sheet.setCell('B2', title);
+
+			res.writeHead ( 200, {
+				"Content-Type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+				'Content-disposition': 'attachment; filename=' + comparaison.name + '.xlsx'
+			});
+
+			xlsx.generate(res);
+
+		});
 	}
 }
 

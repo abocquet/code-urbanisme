@@ -57,6 +57,17 @@ App.ComparaisonShowRoute = Ember.Route.extend({
 	}
 });
 
+App.ComparaisonExportRoute = Ember.Route.extend({
+	model: function(params){
+		return this.modelFor('comparaison');
+	},
+
+	setupController: function(controller, model){
+		controller.set('comparaison', model);
+	}
+});
+
+
 App.ComparaisonCommenterRoute = Ember.Route.extend({
 	model: function(params){
 		var comparaison_id = this.modelFor('comparaison').id, self = this ;

@@ -278,9 +278,9 @@
 			<p class="lead">Vous avez terminé de commenter les articles. Que voulez-vous faire ?</p>
 
 			<div class="row">
-				<p class="col-md-4 text-center">{{#link-to class="btn btn-danger"}}Refaire un passage{{/link-to}}</p>
-				<p class="col-md-4 text-center">{{#link-to }}class="btn btn-success">Exporter au format Excel{{/link-to }}</p>
-				<p class="col-md-4 text-center">{{#link-to }}class="btn btn-success">Revenir à l'accueil{{/link-to }}</p>
+				<p class="col-md-4 text-center">{{#link-to 'comparaison.show' comparaison class="btn btn-danger"}}Refaire un passage{{/link-to}}</p>
+				<p class="col-md-4 text-center"><a {{ bind-attr href=download_link}} target="_blanck" class="btn btn-success">Exporter au format Excel</a></p>
+				<p class="col-md-4 text-center">{{#link-to 'index' class="btn btn-success"}}Revenir à l'accueil{{/link-to }}</p>
 			</div>
 		</div>
 	</script>
@@ -302,6 +302,7 @@
 	<script src="js/controllers/SauvegardeNouvelleController.js"></script>
 	<script src="js/controllers/ComparaisonsNouvelleController.js"></script>
 	<script src="js/controllers/ComparaisonCommenterController.js"></script>
+	<script src="js/controllers/ComparaisonExportController.js"></script>
 
 	<script src="js/models/Sauvegarde.js"></script>
 	<script src="js/models/Comparaison.js"></script>
