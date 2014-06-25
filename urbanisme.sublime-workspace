@@ -4,6 +4,150 @@
 		"selected_items":
 		[
 			[
+				"item",
+				"itemController"
+			],
+			[
+				"ari",
+				"article"
+			],
+			[
+				"articl",
+				"articles"
+			],
+			[
+				"sea",
+				"search"
+			],
+			[
+				"ser",
+				"searchTimeout"
+			],
+			[
+				"res",
+				"result"
+			],
+			[
+				"inde",
+				"index"
+			],
+			[
+				"se",
+				"search"
+			],
+			[
+				"column",
+				"columned"
+			],
+			[
+				"col",
+				"columned"
+			],
+			[
+				"colu",
+				"column"
+			],
+			[
+				"artil",
+				"articles"
+			],
+			[
+				"art",
+				"articles"
+			],
+			[
+				"sau",
+				"sauvegarde"
+			],
+			[
+				"sauvegarde_",
+				"sauvegarde_module"
+			],
+			[
+				"cli",
+				"client"
+			],
+			[
+				"clie",
+				"clients"
+			],
+			[
+				"proce",
+				"processing"
+			],
+			[
+				"pro",
+				"processing"
+			],
+			[
+				"cook",
+				"cookieParser"
+			],
+			[
+				"process",
+				"processing"
+			],
+			[
+				"las",
+				"last_sauvegarde"
+			],
+			[
+				"modifi",
+				"modifié"
+			],
+			[
+				"sauv",
+				"sauvegarde"
+			],
+			[
+				"ar",
+				"articles"
+			],
+			[
+				"Con",
+				"continu"
+			],
+			[
+				"pa",
+				"path"
+			],
+			[
+				"arti",
+				"article"
+			],
+			[
+				"mi",
+				"middle"
+			],
+			[
+				"Com",
+				"Comparaison"
+			],
+			[
+				"la",
+				"last_uncommented_article"
+			],
+			[
+				"comm",
+				"commenter"
+			],
+			[
+				"comp",
+				"comparaison"
+			],
+			[
+				"sript",
+				"script"
+			],
+			[
+				"model",
+				"model"
+			],
+			[
+				"com",
+				"comparaison"
+			],
+			[
 				"modi",
 				"modifications"
 			],
@@ -18,18 +162,6 @@
 			[
 				"index",
 				"indexFrom1"
-			],
-			[
-				"arti",
-				"articles"
-			],
-			[
-				"ari",
-				"article	<article>"
-			],
-			[
-				"res",
-				"result"
 			],
 			[
 				"commen",
@@ -48,20 +180,12 @@
 				"ajouté"
 			],
 			[
-				"comm",
-				"commentaire"
-			],
-			[
 				"pre",
 				"previous"
 			],
 			[
 				"bu",
 				"button"
-			],
-			[
-				"pro",
-				"property"
 			],
 			[
 				"reu",
@@ -74,10 +198,6 @@
 			[
 				"form",
 				"format_state"
-			],
-			[
-				"comp",
-				"comparaison"
 			],
 			[
 				"h",
@@ -128,16 +248,8 @@
 				"script"
 			],
 			[
-				"model",
-				"modelFor"
-			],
-			[
 				"par",
 				"params"
-			],
-			[
-				"com",
-				"comparaison"
 			],
 			[
 				"co",
@@ -146,14 +258,6 @@
 			[
 				"comme",
 				"commentaire"
-			],
-			[
-				"ar",
-				"articles"
-			],
-			[
-				"sau",
-				"sauvegardes"
 			],
 			[
 				"reso",
@@ -208,16 +312,8 @@
 				"Sauvegarde"
 			],
 			[
-				"art",
-				"articles"
-			],
-			[
 				"scrip",
 				"script"
-			],
-			[
-				"sauv",
-				"sauvegardes"
 			],
 			[
 				"date",
@@ -312,10 +408,6 @@
 				"link-to"
 			],
 			[
-				"proce",
-				"processing"
-			],
-			[
 				"in",
 				"info"
 			],
@@ -380,10 +472,6 @@
 				"console.log(message);"
 			],
 			[
-				"pa",
-				"parse"
-			],
-			[
 				"joeu",
 				"joueurs"
 			],
@@ -412,10 +500,6 @@
 				"secondes"
 			],
 			[
-				"se",
-				"secondes"
-			],
-			[
 				"gly",
 				"glyphicon"
 			],
@@ -430,113 +514,73 @@
 			[
 				"tim",
 				"timestamp"
-			],
-			[
-				"pos",
-				"position"
-			],
-			[
-				"E",
-				"Ember"
-			],
-			[
-				"ch",
-				"chrono"
-			],
-			[
-				"gl",
-				"glyphicon"
-			],
-			[
-				"bor",
-				"border"
-			],
-			[
-				"lis",
-				"list-group"
-			],
-			[
-				"padd",
-				"padding"
-			],
-			[
-				"Eq",
-				"EquipeEditController"
-			],
-			[
-				"paddin",
-				"padding-bottom"
-			],
-			[
-				"col-",
-				"col-xs-6"
-			],
-			[
-				"back",
-				"background-color"
-			],
-			[
-				"sortie",
-				"sortie1"
-			],
-			[
-				"add",
-				"addObject"
-			],
-			[
-				"App",
-				"App"
-			],
-			[
-				"joue",
-				"joueur"
-			],
-			[
-				"Joeu",
-				"Joueur"
-			],
-			[
-				"Joeur",
-				"JoueurEdit"
-			],
-			[
-				"equ",
-				"equipe"
-			],
-			[
-				"eu",
-				"equipe"
-			],
-			[
-				"marin",
-				"margin-bottom"
-			],
-			[
-				"margin",
-				"margin-top"
 			]
 		]
 	},
 	"buffers":
 	[
+		{
+			"file": "public/index.html",
+			"settings":
+			{
+				"buffer_size": 13362,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "routes/io/sauvegarde.js",
+			"settings":
+			{
+				"buffer_size": 2441,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Fetcher.js",
+			"settings":
+			{
+				"buffer_size": 2126,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "Packages/User/PHP-Lint.sublime-build",
 	"command_palette":
 	{
-		"height": 207.0,
+		"height": 392.0,
 		"selected_items":
 		[
+			[
+				"rena",
+				"File: Rename"
+			],
+			[
+				"hand",
+				"Set Syntax: Handlebars"
+			],
+			[
+				"dupl",
+				"File: Duplicate"
+			],
+			[
+				"ren",
+				"File: Rename"
+			],
 			[
 				"tabs",
 				"Indentation: Convert to Tabs"
 			],
 			[
-				"du",
-				"File: Duplicate"
-			],
-			[
 				"dele",
 				"File: Delete"
+			],
+			[
+				"han",
+				"Set Syntax: Handlebars"
+			],
+			[
+				"du",
+				"File: Duplicate"
 			],
 			[
 				"re",
@@ -551,14 +595,6 @@
 				"Set Syntax: HTML"
 			],
 			[
-				"han",
-				"Set Syntax: Handlebars"
-			],
-			[
-				"hand",
-				"Set Syntax: Handlebars"
-			],
-			[
 				"move",
 				"File: Move"
 			],
@@ -567,16 +603,8 @@
 				"Project: Edit"
 			],
 			[
-				"dupl",
-				"File: Duplicate"
-			],
-			[
 				"js",
 				"Set Syntax: JavaScript"
-			],
-			[
-				"ren",
-				"File: Rename"
 			],
 			[
 				"jqu",
@@ -585,10 +613,6 @@
 			[
 				"html",
 				"Snippet: html"
-			],
-			[
-				"rena",
-				"File: Rename"
 			],
 			[
 				"edit",
@@ -984,37 +1008,44 @@
 	},
 	"file_history":
 	[
-		"/Users/adrienbocquet/Programmation/NodeJS/code urbanisme/public/js/models/Article.js",
-		"/Users/adrienbocquet/Programmation/NodeJS/code urbanisme/public/js/helpers/format_commentaire.js",
+		"/Users/adrienbocquet/Programmation/NodeJS/code urbanisme/PDFIterator.js",
 		"/Users/adrienbocquet/Programmation/NodeJS/code urbanisme/public/js/router.js",
-		"/Users/adrienbocquet/Programmation/NodeJS/code urbanisme/public/js/controllers/ComparaisonExportController.js",
-		"/Users/adrienbocquet/Programmation/NodeJS/code urbanisme/routes/rest/comparaison.js",
+		"/Users/adrienbocquet/Programmation/NodeJS/code urbanisme/routes/rest/sauvegarde.js",
 		"/Users/adrienbocquet/Programmation/NodeJS/code urbanisme/app.js",
+		"/Users/adrienbocquet/Programmation/NodeJS/code urbanisme/public/js/controllers/SauvegardeShowController.js",
+		"/Users/adrienbocquet/Programmation/NodeJS/code urbanisme/public/js/controllers/SauvegardeShowIndexController.js",
 		"/Users/adrienbocquet/Programmation/NodeJS/code urbanisme/public/index.html",
-		"/Users/adrienbocquet/Programmation/NodeJS/code urbanisme/public/js/controllers/ComparaisonCommenterController.js",
-		"/Users/adrienbocquet/Programmation/NodeJS/code urbanisme/public/js/models/Sauvegarde.js",
+		"/Users/adrienbocquet/Programmation/NodeJS/code urbanisme/public/js/controllers/ItemShowController.js",
+		"/Users/adrienbocquet/Programmation/NodeJS/code urbanisme/public/js/controllers/ItemEditController.js",
+		"/Users/adrienbocquet/Programmation/NodeJS/code urbanisme/public/js/controllers/SauvegardeNouvelleController.js",
 		"/Users/adrienbocquet/Programmation/NodeJS/code urbanisme/public/css/added.css",
 		"/Users/adrienbocquet/Programmation/NodeJS/code urbanisme/routes/io/sauvegarde.js",
+		"/Users/adrienbocquet/Programmation/NodeJS/code urbanisme/routes/rest/comparaison.js",
 		"/Users/adrienbocquet/Programmation/NodeJS/code urbanisme/routes/rest/article.js",
+		"/Users/adrienbocquet/Programmation/NodeJS/code urbanisme/models/Article.js",
+		"/Users/adrienbocquet/Programmation/NodeJS/code urbanisme/public/js/controllers/ComparaisonItemController.js",
+		"/Users/adrienbocquet/Programmation/NodeJS/code urbanisme/public/js/models/Comparaison.js",
+		"/Users/adrienbocquet/Programmation/NodeJS/code urbanisme/public/js/controllers/ComparaisonsItemController.js",
+		"/Users/adrienbocquet/Downloads/04X10.srt",
+		"/Users/adrienbocquet/Programmation/NodeJS/code urbanisme/public/js/helpers/format_commentaire.js",
+		"/Users/adrienbocquet/Programmation/NodeJS/code urbanisme/public/js/controllers/ComparaisonExportController.js",
+		"/Users/adrienbocquet/Programmation/NodeJS/code urbanisme/public/js/models/Article.js",
+		"/Users/adrienbocquet/Programmation/NodeJS/code urbanisme/public/js/controllers/ComparaisonCommenterController.js",
+		"/Users/adrienbocquet/Programmation/NodeJS/code urbanisme/public/js/models/Sauvegarde.js",
 		"/Users/adrienbocquet/Programmation/NodeJS/code urbanisme/public/js/helpers/format_state.js",
 		"/Users/adrienbocquet/Programmation/NodeJS/code urbanisme/public/js/helpers/objectAt.js",
-		"/Users/adrienbocquet/Programmation/NodeJS/code urbanisme/routes/rest/sauvegarde.js",
 		"/Users/adrienbocquet/Programmation/NodeJS/code urbanisme/routes/index.js",
 		"/Users/adrienbocquet/Programmation/NodeJS/code urbanisme/public/js/controllers/ComparaisonsNouvelleController.js",
 		"/Users/adrienbocquet/Programmation/NodeJS/code urbanisme/public/js/helpers/safe.js",
 		"/Users/adrienbocquet/Programmation/NodeJS/code urbanisme/public/js/helpers/math.js",
 		"/Users/adrienbocquet/Programmation/NodeJS/code urbanisme/public/js/helpers/format_date.js",
 		"/Users/adrienbocquet/Programmation/NodeJS/code urbanisme/public/js/controllers/ComparaisonNouvelleController.js",
-		"/Users/adrienbocquet/Programmation/NodeJS/code urbanisme/models/Article.js",
-		"/Users/adrienbocquet/Programmation/NodeJS/code urbanisme/public/js/models/Comparaison.js",
 		"/Users/adrienbocquet/Programmation/NodeJS/code urbanisme/public/js/app.js",
 		"/Users/adrienbocquet/Programmation/NodeJS/code urbanisme/models/Comparaison.js",
 		"/Users/adrienbocquet/Programmation/NodeJS/code urbanisme/routes/io/comparaison.js",
 		"/Users/adrienbocquet/Programmation/NodeJS/code urbanisme/array.js",
 		"/Users/adrienbocquet/Programmation/NodeJS/code urbanisme/Fetcher.js",
-		"/Users/adrienbocquet/Programmation/NodeJS/code urbanisme/PDFIterator.js",
 		"/Users/adrienbocquet/Programmation/NodeJS/code urbanisme/models/Sauvegarde.js",
-		"/Users/adrienbocquet/Programmation/NodeJS/code urbanisme/public/js/controllers/SauvegardeNouvelleController.js",
 		"/Users/adrienbocquet/Programmation/NodeJS/code urbanisme/urbanisme.sublime-workspace",
 		"/Users/adrienbocquet/Programmation/NodeJS/code urbanisme/urbanisme.sublime-project",
 		"/Users/adrienbocquet/Programmation/NodeJS/code urbanisme/routes/rest/sauvergarde.js",
@@ -1104,14 +1135,7 @@
 		"/Users/adrienbocquet/Sites/MAMP/Kub/src/Kub/EDTBundle/Entity/Cours.php",
 		"/Users/adrienbocquet/Sites/MAMP/Kub/web/ressources/jsmin/horaires.min.js",
 		"/Users/adrienbocquet/Sites/MAMP/Kub/web/ressources/js/horaires.js",
-		"/Users/adrienbocquet/Sites/MAMP/Kub/src/Kub/EDTBundle/Form/Type/HoraireType.php",
-		"/Users/adrienbocquet/Sites/MAMP/KUB/web/ressources/sass/partials/pages/_agenda.scss",
-		"/Users/adrienbocquet/Sites/MAMP/Kub/src/Kub/EDTBundle/Entity/Categorie.php",
-		"/Users/adrienbocquet/Sites/MAMP/Kub/src/Kub/EDTBundle/DataFixtures/ORM/LoadCategorieData.php",
-		"/Users/adrienbocquet/Sites/MAMP/Kub/src/Kub/EDTBundle/Resources/views/Cours/edit.html.twig",
-		"/Users/adrienbocquet/Sites/MAMP/Kub/src/Kub/EDTBundle/Resources/views/Cours/horaires_form.html.twig",
-		"/Users/adrienbocquet/Sites/MAMP/Kub/src/Kub/EDTBundle/Resources/views/Cours/form.html.twig",
-		"/Users/adrienbocquet/Sites/MAMP/Kub/src/Kub/EDTBundle/Entity/Horaire.php"
+		"/Users/adrienbocquet/Sites/MAMP/Kub/src/Kub/EDTBundle/Form/Type/HoraireType.php"
 	],
 	"find":
 	{
@@ -1119,7 +1143,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 93.0,
+		"height": 0.0,
 		"where_history":
 		[
 			"<open folders>",
@@ -1172,6 +1196,58 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"display_content",
+			"editing",
+			"show",
+			"query",
+			"req",
+			"params",
+			"this",
+			"model",
+			"}\n",
+			"get",
+			"seached_articles",
+			"searched_articles",
+			"column-count",
+			"Nom",
+			"content",
+			"_id",
+			"console.log(",
+			"sauvegarde_module",
+			"self",
+			"self[req.io.socket.id].articles",
+			"')\n",
+			"req.session.articles",
+			"self",
+			"self.articles",
+			"articles",
+			"console.log",
+			"useless",
+			"sauvegarde_useless",
+			"occupation",
+			"article",
+			"Article",
+			"article",
+			"Article",
+			"danger",
+			"button",
+			" + i",
+			"i",
+			"))",
+			"urlencode",
+			"row",
+			"push",
+			",",
+			"content",
+			"text",
+			"contenu",
+			"nme",
+			"name",
+			"12345",
+			"report",
+			"out",
+			"jsontoxml",
+			"jsonxml",
 			"Things",
 			" }}clas",
 			"}}",
@@ -1247,59 +1323,7 @@
 			"sauvergardes",
 			"sauvegardes",
 			"sauvergarde",
-			"comparaison",
-			"this",
-			"model",
-			"sauvergardes",
-			"Sauvegarde",
-			"get",
-			"io",
-			"./",
-			"Sauvegarde",
-			"processing",
-			"button",
-			"choosing_name",
-			"start",
-			"article",
-			"Article",
-			"Sauvegarde",
-			"fs",
-			"info",
-			"this",
-			"...",
-			"./tmp/code.pdf\"",
-			"tmp",
-			"request",
-			"http",
-			"console.log",
-			"name",
-			"info",
-			"</a>",
-			"index",
-			"<a href=\"#\">",
-			"ontact",
-			"#link-to",
-			"Company",
-			"date",
-			"this",
-			"infos",
-			"span",
-			"ressource",
-			"  ",
-			"return",
-			"return ''",
-			"li",
-			"button",
-			"article",
-			"</a>",
-			"<a",
-			"main",
-			"this",
-			"parser",
-			"tmp",
-			"http",
-			"article",
-			"page"
+			"comparaison"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1368,8 +1392,90 @@
 	"groups":
 	[
 		{
+			"selected": 2,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "public/index.html",
+					"settings":
+					{
+						"buffer_size": 13362,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3934,
+								3934
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Handlebars/Handlebars.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 162.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "routes/io/sauvegarde.js",
+					"settings":
+					{
+						"buffer_size": 2441,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "Fetcher.js",
+					"settings":
+					{
+						"buffer_size": 2126,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -1427,36 +1533,128 @@
 		"selected_items":
 		[
 			[
-				"rescom",
-				"routes/rest/comparaison.js"
+				"fetc",
+				"Fetcher.js"
+			],
+			[
+				"sau",
+				"routes/io/sauvegarde.js"
+			],
+			[
+				"iter",
+				"PDFIterator.js"
+			],
+			[
+				"sauv",
+				"public/js/controllers/SauvegardeShowIndexController.js"
+			],
+			[
+				"index",
+				"public/index.html"
+			],
+			[
+				"tiem",
+				"public/js/controllers/ItemEditController.js"
 			],
 			[
 				"app",
 				"app.js"
 			],
 			[
-				"comcon",
-				"public/js/controllers/ComparaisonCommenterController.js"
-			],
-			[
-				"route",
-				"public/js/router.js"
-			],
-			[
-				"article",
-				"public/js/models/Article.js"
-			],
-			[
-				"sau",
-				"public/js/models/Sauvegarde.js"
+				"saucontr",
+				"public/js/controllers/SauvegardeNouvelleController.js"
 			],
 			[
 				"added",
 				"public/css/added.css"
 			],
 			[
+				"rout",
+				"public/js/router.js"
+			],
+			[
+				"saucon",
+				"public/js/controllers/SauvegardeNouvelleController.js"
+			],
+			[
+				"io",
+				"routes/io/sauvegarde.js"
+			],
+			[
+				"resau",
+				"routes/rest/sauvegarde.js"
+			],
+			[
+				"arti",
+				"routes/rest/article.js"
+			],
+			[
+				"art",
+				"models/Article.js"
+			],
+			[
+				"rou",
+				"public/js/router.js"
+			],
+			[
+				"resa",
+				"routes/rest/sauvegarde.js"
+			],
+			[
+				"reart",
+				"routes/rest/article.js"
+			],
+			[
+				"item",
+				"public/js/controllers/ComparaisonItemController.js"
+			],
+			[
+				"recom",
+				"routes/rest/comparaison.js"
+			],
+			[
+				"artic",
+				"routes/rest/article.js"
+			],
+			[
+				"ade",
+				"public/css/added.css"
+			],
+			[
 				"form",
 				"public/js/helpers/format_commentaire.js"
+			],
+			[
+				"comexpo",
+				"public/js/controllers/ComparaisonExportController.js"
+			],
+			[
+				"com",
+				"public/js/models/Comparaison.js"
+			],
+			[
+				"route",
+				"public/js/router.js"
+			],
+			[
+				"ine",
+				"public/index.html"
+			],
+			[
+				"resco",
+				"routes/rest/comparaison.js"
+			],
+			[
+				"rescom",
+				"routes/rest/comparaison.js"
+			],
+			[
+				"comcon",
+				"public/js/controllers/ComparaisonCommenterController.js"
+			],
+			[
+				"article",
+				"public/js/models/Article.js"
 			],
 			[
 				"router",
@@ -1479,14 +1677,6 @@
 				"public/js/helpers/objectAt.js"
 			],
 			[
-				"rou",
-				"public/js/router.js"
-			],
-			[
-				"arti",
-				"routes/rest/article.js"
-			],
-			[
 				"r",
 				"public/js/router.js"
 			],
@@ -1497,14 +1687,6 @@
 			[
 				"restar",
 				"routes/rest/sauvegarde.js"
-			],
-			[
-				"com",
-				"routes/rest/comparaison.js"
-			],
-			[
-				"art",
-				"public/js/models/Article.js"
 			],
 			[
 				"help",
@@ -1531,10 +1713,6 @@
 				"public/js/controllers/ComparaisonNouvelleController.js"
 			],
 			[
-				"artic",
-				"models/Article.js"
-			],
-			[
 				"restcom",
 				"routes/rest/comparaison.js"
 			],
@@ -1543,16 +1721,8 @@
 				"public/js/controllers/ComparaisonNouvelleController.js"
 			],
 			[
-				"recom",
-				"routes/rest/comparaison.js"
-			],
-			[
 				"puapp",
 				"public/js/app.js"
-			],
-			[
-				"rout",
-				"public/js/router.js"
 			],
 			[
 				"iocom",
@@ -1693,10 +1863,6 @@
 			[
 				"it",
 				"PDFIterator.js"
-			],
-			[
-				"index",
-				"js/controllers/IndexController.js"
 			],
 			[
 				"eui",
@@ -1877,66 +2043,6 @@
 			[
 				"cours.",
 				"src/Kub/EDTBundle/Entity/Cours.php"
-			],
-			[
-				"courshandler",
-				"src/Kub/EDTBundle/Form/Handler/CoursHandler.php"
-			],
-			[
-				"timeservice",
-				"src/Kub/EDTBundle/TimeService/TimeService.php"
-			],
-			[
-				"horaires",
-				"web/ressources/jsmin/horaires.min.js"
-			],
-			[
-				"horaire",
-				"web/ressources/js/horaires.js"
-			],
-			[
-				"horairety",
-				"src/Kub/EDTBundle/Form/Type/HoraireType.php"
-			],
-			[
-				"edtser",
-				"src/Kub/EDTBundle/Resources/config/services.yml"
-			],
-			[
-				"interval",
-				"src/Kub/EDTBundle/TimeService/Interval.php"
-			],
-			[
-				"edtshow",
-				"src/Kub/EDTBundle/Resources/views/EDT/show.html.twig"
-			],
-			[
-				"hoaire",
-				"src/Kub/EDTBundle/Entity/Horaire.php"
-			],
-			[
-				"horaireform",
-				"src/Kub/EDTBundle/Resources/views/Cours/horaires_form.html.twig"
-			],
-			[
-				"coursform",
-				"src/Kub/EDTBundle/Resources/views/Cours/form.html.twig"
-			],
-			[
-				"edtbundletwig",
-				"src/Kub/EDTBundle/Resources/views/Cours/edit.html.twig"
-			],
-			[
-				"inter",
-				"src/Kub/EDTBundle/TimeService/Interval.php"
-			],
-			[
-				"cat",
-				"src/Kub/EDTBundle/Entity/Categorie.php"
-			],
-			[
-				"loadcategorie",
-				"src/Kub/EDTBundle/DataFixtures/ORM/LoadCategorieData.php"
 			]
 		],
 		"width": 0.0

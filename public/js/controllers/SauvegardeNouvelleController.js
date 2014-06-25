@@ -41,6 +41,13 @@ App.SauvegardeNouvelleController = Ember.ArrayController.extend({
 
 		},
 
+		sauvegarde_useless: function(){
+
+			this.set('useless', true);
+			this.set('logVisible', false);
+
+		},
+
 		sauvegarde_info: function(info){
 
 			info.date = new Date();

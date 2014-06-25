@@ -52,7 +52,7 @@
 				<h4>Etape 3: Commentaires</h4>
 				<p>
 					Il va falloir se mettre à bosser: les modifications de chaque article vous sont présentées et vous pouvez (pas de pression) les commenter
-					{{#link-to 'index' }}Etape 3: Commentaires{{/link-to}}
+					{{#link-to 'comparaisons.commenter' }}Etape 3: Commentaires{{/link-to}}
 				</p>
 
 			</div>
@@ -67,7 +67,7 @@
 				<h4>Etape 4: la vie</h4>
 				<p>
 					On exporte le tout sur excel et on fait des lasagnes
-					{{#link-to 'index' }}Etape 4: la vie{{/link-to}}
+					{{#link-to 'comparaisons.export' }}Etape 4: la vie{{/link-to}}
 				</p>
 
 			</div>
@@ -85,18 +85,56 @@
 				<th>Nombre d'articles</th>
 				<th class="text-right">Actions</th>
 			</tr>
-			{{#each }}
+			{{#each itemController="itemEdit"}}
 			<tr>
-				<td>{{ name }}</td>
+				<td {{ bind-attr class="editing:hidden" }}>{{ name }}</td>
+				<td {{ bind-attr class="editing::hidden" }}>{{ input value=name class="form-control" }}</td>
 				<td>{{ format_date date }}</td>
 				<td>{{ nombre_articles }}</td>
 				<td class="text-right">
-					<a href="">Supprimer</a>
+					<a {{ bind-attr class="editing:hidden" }} {{ action 'edit' }}>Editer</a>
+					<a {{ bind-attr class="editing::hidden" }} {{ action 'save' }}>Sauvegarder</a> - 
+					{{#link-to 'sauvegarde.show' this.id }}Voir{{/link-to }}
 				</td>
 			</tr>
 			{{/each }}
 		</table>
 	</script>
+
+	<script type="text/x-handlebars" data-template-name="sauvegarde/show">
+
+		<h2>{{ sauvegarde.name }}</h2>
+
+		<p>
+			{{ input value=search class="form-control" placeholder="Rechercher un article"}}
+		</p>
+
+		<table class="table table-hover">
+			<tr>
+				<th>Article</th>
+				<th class="text-right">Actions</th>
+			</tr>
+			{{#each sauvegarde.articles itemController="itemShow"}}
+				<tr>
+					<td>{{ title }}</td>
+					<td class="text-right">
+						{{#if display }}
+							<a {{ action 'hide' }}>Masquer le contenu</a>
+						{{ else }}
+							<a {{ action 'show' }}>Voir le contenu</a>
+						{{/if}}
+					</td>
+				</tr>
+				{{#if display }}
+					<tr>
+						<td colspan="2">{{ content.content }}</td>
+					</tr>
+				{{/if}}
+			{{/each }}
+		</table>
+
+	</script>
+
 	<script type="text/x-handlebars" data-template-name="sauvegarde/nouvelle">
 
 		<h1>Création d'une sauvegarde</h1>
@@ -122,6 +160,15 @@
 			<p><button {{ action "toogleLog" }} class="btn btn-primary">Afficher/masques le log</button></p>
 		</div>
 
+		<div {{ bind-attr class="useless::hidden :text-center" }}>
+			<h4>Il n'est pas la peine de faire une nouvelle sauvegarde car le code n'a pas encore été modifié.</h4>
+			<h3>{{#link-to 'index' class="btn btn-lg btn-default" }}Voulez-vous retourner à l'accueil ?{{/link-to}}</h3>
+
+			<hr>
+
+			<p><button {{ action "toogleLog" }} class="btn btn-primary">Afficher/masques le log</button></p>
+		</div>
+
 		<div {{ bind-attr class="logVisible::hidden" }}>
 			{{#each }}
 				<div {{ bind-attr class=":alert type" }}>
@@ -136,7 +183,6 @@
 		</div>
 	</script>
 
-
 	<script type="text/x-handlebars" data-template-name="comparaisons/index">
 		<h1 class="text-center">Comparaisons</h1>
 
@@ -147,12 +193,15 @@
 				<th>Nombre d'articles</th>
 				<th class="text-right">Actions</th>
 			</tr>
-			{{#each }}
+			{{#each itemController="itemEdit"}}
 			<tr>
-				<td>{{ name }}</td>
+				<td {{ bind-attr class="editing:hidden" }}>{{ name }}</td>
+				<td {{ bind-attr class="editing::hidden" }}>{{ input value=name class="form-control" }}</td>
 				<td>{{ format_date date }}</td>
 				<td>{{ articles.length }}</td>
 				<td class="text-right">
+					<a {{ bind-attr class="editing:hidden" }} {{ action 'edit' }}>Editer</a>
+					<a {{ bind-attr class="editing::hidden" }} {{ action 'save' }}>Sauvegarder</a> - 
 					{{#link-to 'comparaison.show' this}}Voir{{/link-to}}
 				</td>
 			</tr>
@@ -202,6 +251,59 @@
 		</div>
 	</script>	
 
+	<script type="text/x-handlebars" data-template-name="comparaisons/export">
+
+		<h1 class="text-center">Exporter une comparaison</h1>
+
+		<table class="table table-hover">
+			<tr>
+				<th>Nom</th>
+				<th>Date de création</th>
+				<th class="text-right">Exporter</th>
+			</tr>
+			{{#each }}
+			<tr>
+				<td>{{ name }}</td>
+				<td>{{ format_date date }}</td>
+				<td class="text-right">
+					<a {{ bind-attr href=download_link}} target="_blanck">Format Excel</a>
+				</td>
+			</tr>
+			{{/each }}
+		</table>
+	</script>
+
+	<script type="text/x-handlebars" data-template-name="comparaisons/commenter">
+
+		<h1 class="text-center">Commenter une comparaison</h1>
+
+		<table class="table table-hover">
+			<tr>
+				<th>Nom</th>
+				<th class="text-right">Dernier article non commenté</th>
+			</tr>
+			{{#each }}
+			<tr>
+				<td>{{ name }}</td>
+				<td class="text-right">
+					<div class="btn-group">
+						{{#link-to 'comparaison.commenter' this last_uncommented_article class="btn btn-default"}}{{ last_uncommented_article.name }}{{/link-to}}
+						<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+							<span class="caret"></span>
+							<span class="sr-only">Toggle Dropdown</span>
+						</button>
+						<ul class="dropdown-menu" role="menu">
+							{{#each articles }}
+								<li>{{#link-to 'comparaison.commenter' this.comparaison this }}{{ name }}{{/link-to}}</li>
+							{{/each}}
+						</ul>
+					</div>
+				</td>
+			</tr>
+			{{/each }}
+		</table>
+	</script>
+
 	<script type="text/x-handlebars" data-template-name="comparaison/show">
 
 		<h2 class="text-center">{{ name }}</h2>
@@ -214,7 +316,7 @@
 				<th class="text-right">Actions</th>
 			</tr>
 
-			{{#each articles}}
+			{{#each articles }}
 			<tr>
 				<td>{{ name }}</td>
 				<td>{{ format_state state }}</td>
@@ -225,7 +327,6 @@
 			</tr>
 			{{/each }}
 		</table>
-
 	</script>
 
 	<script type="text/x-handlebars" data-template-name="comparaison/commenter">
@@ -269,7 +370,6 @@
 		<p class="text-center form-inline">
 			Page: {{input value=indexFrom1 class="form-control" action='to' }} sur {{ comparaison.articles.length }}
 		</p>
-
 	</script>
 
 	<script type="text/x-handlebars" data-template-name="comparaison/export">
@@ -300,9 +400,11 @@
 	<script src="js/router.js"></script>
 
 	<script src="js/controllers/SauvegardeNouvelleController.js"></script>
+	<script src="js/controllers/SauvegardeShowController.js"></script>
 	<script src="js/controllers/ComparaisonsNouvelleController.js"></script>
 	<script src="js/controllers/ComparaisonCommenterController.js"></script>
-	<script src="js/controllers/ComparaisonExportController.js"></script>
+	<script src="js/controllers/ItemEditController.js"></script>
+	<script src="js/controllers/ItemShowController.js"></script>
 
 	<script src="js/models/Sauvegarde.js"></script>
 	<script src="js/models/Comparaison.js"></script>

@@ -11,7 +11,7 @@ module.exports = {
 			res.json({
 				articles: article
 			});
-		})
-	}	
+		});
+	}
 	
 }

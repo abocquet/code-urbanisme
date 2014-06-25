@@ -141,6 +141,17 @@ var routes = {
 		});
 	},
 
+	put: function(req, res){
+
+		Comparaison.findOneAndUpdate({_id: req.params.id}, {name: req.body.comparaison.name }, function(err, comparaison){
+			if(err){ console.error(err); }
+			res.json({
+				comparaisons: comparaison
+			});
+		});
+
+	},
+
 	differences: function(req, res){
 		Comparaison
 		.findById(req.params.id, function(err, comparaison){

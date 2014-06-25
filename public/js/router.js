@@ -3,11 +3,15 @@ App.Router.map(function() {
 	this.resource('sauvegarde', function(){
 
 		this.route('nouvelle');
+		this.route('show', {path: '/:sauvegarde'});
 	});
 
 	this.resource('comparaisons', function(){
 
 		this.route('nouvelle');
+		this.route('export');
+		this.route('commenter');
+
 		this.resource('comparaison', {path: '/:id'}, function(){
 			this.route('show', {path: '/'});
 			this.route('export');
@@ -23,6 +27,17 @@ App.SauvegardeIndexRoute = Ember.Route.extend({
 	model: function(){
 		return this.store.find('sauvegarde');
 	}
+});
+
+App.SauvegardeShowRoute = Ember.Route.extend({
+
+	model: function(params){
+		return Ember.$.get('/sauvegardes/' + params.sauvegarde + '/list');
+	},
+
+	setupController: function(controller, model){
+		controller.set('sauvegarde', model);
+	}
 
 });
 
@@ -35,6 +50,7 @@ App.SauvegardeNouvelleRoute = Ember.Route.extend({
 			processing: false,
 			logVisible: true,
 			done: false,
+			useless: false,
 
 			choosing_name: false,
 			name: 'Sauvegarde du ' + (new Date()).getMonth() + '/' + (new Date()).getDate() + ' à ' + (new Date()).getHours() + ':' + (new Date()).getMinutes()
@@ -48,7 +64,18 @@ App.ComparaisonsIndexRoute = Ember.Route.extend({
 	model: function(){
 		return this.store.find('comparaison');
 	}
+});
 
+App.ComparaisonsExportRoute = Ember.Route.extend({
+	model: function(){
+		return this.store.find('comparaison');
+	}
+});
+
+App.ComparaisonsCommenterRoute = Ember.Route.extend({
+	model: function(){
+		return this.store.find('comparaison');
+	}
 });
 
 App.ComparaisonShowRoute = Ember.Route.extend({
@@ -60,10 +87,6 @@ App.ComparaisonShowRoute = Ember.Route.extend({
 App.ComparaisonExportRoute = Ember.Route.extend({
 	model: function(params){
 		return this.modelFor('comparaison');
-	},
-
-	setupController: function(controller, model){
-		controller.set('comparaison', model);
 	}
 });
 
