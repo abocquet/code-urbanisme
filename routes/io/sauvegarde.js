@@ -39,7 +39,11 @@ var self = {
 			.exec(function(err, last_sauvegarde){
 
 				if(err){ throw err ; req.io.emit('sauvegarde_info', {content: JSON.stringify(err), type: 'danger'});}
-				var ref = fs.readFileSync('./data/' + last_sauvegarde._id + '.json');
+
+				var ref = '' ;
+				if(last_sauvegarde){
+					ref = fs.readFileSync('./data/' + last_sauvegarde._id + '.json');
+				}
 
 				if(ref == JSON.stringify(self.clients[req.io.socket.id].articles)){
 					self.clients[req.io.socket.id].processing = false ;	

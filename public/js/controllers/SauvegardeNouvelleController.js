@@ -11,7 +11,7 @@ App.SauvegardeNouvelleController = Ember.ArrayController.extend({
 
 	current_progress: {content: ''},
 
-  	name: 'Sauvegarde du ' + (new Date()).getMonth() + '/' + (new Date()).getDate() + ' à ' + (new Date()).getHours() + ':' + (new Date()).getMinutes(),
+  	name: '',
 
   	actions: {
   		start: function(){

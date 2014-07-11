@@ -17,6 +17,7 @@ App.Article = DS.Model.extend({
 	}.property('index'),
 
 	ajoute: function(){ return this.get('state') == 1 }.property('state'),
-	supprime: function(){ return this.get('state') == -1 }.property('state')
+	supprime: function(){ return this.get('state') == -1 }.property('state'),
+	modifie: function(){ return this.get('state') == 0 }.property('state')
 
 });

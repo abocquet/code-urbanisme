@@ -15,6 +15,7 @@ App.Router.map(function() {
 		this.resource('comparaison', {path: '/:id'}, function(){
 			this.route('show', {path: '/'});
 			this.route('export');
+			this.route('print');
 			this.route('commenter', {path: '/commenter/:index'});
 		});
 
@@ -53,7 +54,7 @@ App.SauvegardeNouvelleRoute = Ember.Route.extend({
 			useless: false,
 
 			choosing_name: false,
-			name: 'Sauvegarde du ' + (new Date()).getMonth() + '/' + (new Date()).getDate() + ' à ' + (new Date()).getHours() + ':' + (new Date()).getMinutes()
+			name: 'Sauvegarde du ' + (new Date()).getDate() + '/' + ((new Date()).getMonth() + 1) + '/' + (new Date()).getFullYear()
 		});
 
 	}
@@ -80,16 +81,41 @@ App.ComparaisonsCommenterRoute = Ember.Route.extend({
 
 App.ComparaisonShowRoute = Ember.Route.extend({
 	model: function(params){
-		return this.modelFor('comparaison');
+		return this.store.find('comparaison', this.modelFor('comparaison').id);
 	}
 });
 
 App.ComparaisonExportRoute = Ember.Route.extend({
 	model: function(params){
-		return this.modelFor('comparaison');
+		return this.store.find('comparaison', this.modelFor('comparaison').id);
 	}
 });
 
+App.ComparaisonPrintRoute = Ember.Route.extend({
+	model: function(params){
+		return this.store.find('comparaison', this.modelFor('comparaison').id);
+	},
+
+	setupController: function(controller, model){
+
+		controller.set('model', model);
+
+		model.get('articles').forEach(function(item, index){
+
+			console.log(item.get('modifie'));
+			if(item.get('modifie'))
+			{
+				console.log('bip')
+				Ember.$.get('/comparaison/' + item.get('comparaison.id') + '/differences/' + item.get('name')).then(function(data){
+					console.log(data)
+					item.set('differences', data);
+				});
+			}
+
+		});
+
+	}
+});
 
 App.ComparaisonCommenterRoute = Ember.Route.extend({
 	model: function(params){

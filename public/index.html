@@ -16,7 +16,7 @@
 	<script type="text/x-handlebars">
 
 		<div class="container">
-			<div class="header">
+			<div class="header hidden-print">
 				<ul class="nav nav-pills pull-right">
 					<li>{{#link-to 'index'}}Accueil{{/link-to}}</li>
 					<li>{{#link-to 'sauvegarde'}}Sauvegardes{{/link-to}}</li>
@@ -127,7 +127,7 @@
 				</tr>
 				{{#if display }}
 					<tr>
-						<td colspan="2">{{ content.content }}</td>
+						<td colspan="2">{{ format_article content.content }}</td>
 					</tr>
 				{{/if}}
 			{{/each }}
@@ -340,7 +340,7 @@
 		</div>
 		<div class="row">
 			<p class="col-sm-10 col-sm-offset-1">
-				{{ safe differences }}
+				{{ format_article differences }}
 			</p>
 		</div>
 
@@ -378,13 +378,38 @@
 			<p class="lead">Vous avez terminé de commenter les articles. Que voulez-vous faire ?</p>
 
 			<div class="row">
-				<p class="col-md-4 text-center">{{#link-to 'comparaison.show' comparaison class="btn btn-danger"}}Refaire un passage{{/link-to}}</p>
-				<p class="col-md-4 text-center"><a {{ bind-attr href=download_link}} target="_blanck" class="btn btn-success">Exporter au format Excel</a></p>
-				<p class="col-md-4 text-center">{{#link-to 'index' class="btn btn-success"}}Revenir à l'accueil{{/link-to }}</p>
+				<p class="col-md-3 text-center">{{#link-to 'comparaison.show' comparaison.id class="btn btn-danger"}}Refaire un passage{{/link-to}}</p>
+				<p class="col-md-3 text-center"><a {{ bind-attr href=download_link}} target="_blanck" class="btn btn-success">Exporter au format Excel</a></p>
+				<p class="col-md-3 text-center">{{#link-to 'comparaison.print' class="btn btn-success"}}Voir pour impression{{/link-to }}</p>
+				<p class="col-md-3 text-center">{{#link-to 'index' class="btn btn-primary"}}Revenir à l'accueil{{/link-to }}</p>
 			</div>
 		</div>
 	</script>
 	
+	<script type="text/x-handlebars" data-template-name="comparaison/print">
+		
+		<h3 class="text-center">{{ name }}</h3>
+
+		{{#each articles }}
+
+			<div>
+				<h2>{{ name }} <small>{{ format_state state }}</small></h2>
+
+				{{#if modifie }}
+					<div class="row">
+						<p class="col-md-10 col-md-offset-1 left-border">{{ format_article differences }}</p>
+					</div>
+				{{/if}}
+
+				<p class="lead"><em>{{ format_commentaire commentaire }}</em></p>
+			</div>
+
+		{{/each}} 
+
+		<p class="text-center">Tous les articles non présents n'ont pas été modifiés</p>
+
+	</script>
+
 	<script src="js/libs/jquery-1.10.2.js"></script>
 	<script src="js/libs/bootstrap.js"></script>	
 
@@ -411,6 +436,7 @@
 	<script src="js/models/Article.js"></script>
 
 	<script src="js/helpers/format_date.js"></script>
+	<script src="js/helpers/format_article.js"></script>
 	<script src="js/helpers/format_state.js"></script>
 	<script src="js/helpers/format_commentaire.js"></script>
 	<script src="js/helpers/safe.js"></script>

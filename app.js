@@ -5,7 +5,7 @@ require('./array.js');
 var mongoose = require('mongoose'),
 	models = require('./models')
 ;
-	mongoose.connect('mongodb://localhost/urbanisme');
+	mongoose.connect('mongodb://localhost/urbanisme_dev');
 
 var express = require('express.io'),
 	bodyParser = require('body-parser'),

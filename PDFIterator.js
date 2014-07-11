@@ -44,14 +44,26 @@ var PDFIterator = function(json){
 	this.currentElement = function(){
 
 		var current = this.pages[ this.current.page.number ].Texts[ this.current.text.number ].R[0],
-			type = "" ;
+			type = "",
+			content = current.T
+		;
 
 			 if(this.types.title.equals(current.TS)){ type = "TITLE" }
 		else if(this.types.text.equals(current.TS)) { type = "TEXT" }
 		else { type = "OTHER" }
 
+		//On regarde la différence d'ordonée entre les deux éléments pour savoir d'il y a un alinéa
+		if(
+			(
+				(this.pages[ this.current.page.number ].Texts[ this.current.text.number + 1] || {y: 0}).y -
+				 this.pages[ this.current.page.number ].Texts[ this.current.text.number ].y
+			) > 1  && type == "TEXT"
+		){
+			content += '\n' ;
+		}
+
 		return {
-			content: current.T,
+			content: content,
 			type: type,
 			TS: current.TS
 		};
@@ -61,7 +73,9 @@ var PDFIterator = function(json){
 
 		var content = '',
 			element = this.currentElement()
-		;		
+		;
+
+		// console.log(element.TS);
 
 		if(element == false){ return false ;}
 

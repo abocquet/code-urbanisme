@@ -41,10 +41,16 @@ textarea {
 	margin-bottom: -20px ;
 }
 
+.left-border {
+	border-left: 1px solid grey ;
+}
+
 /* Space out content a bit */
 body {
 	padding-top: 20px;
 	padding-bottom: 20px;
+
+	-webkit-print-color-adjust:exact;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -119,4 +125,16 @@ body {
 	.jumbotron {
 		border-bottom: 0;
 	}
+}
+
+@media print {
+	
+	del, ins {
+		text-decoration: none ;
+		padding: 3px ;
+	}
+
+	del { background-color: rgb(255, 221, 221) ;}
+	ins { background-color: rgb(221, 255, 221) ;}
+
 }
